@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_matches.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ssicard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: abary <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/19 21:03:20 by ssicard           #+#    #+#             */
-/*   Updated: 2015/12/21 16:32:05 by abary            ###   ########.fr       */
+/*   Created: 2015/12/20 19:45:49 by abary             #+#    #+#             */
+/*   Updated: 2015/12/21 06:58:23 by abary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#define BUFF_SIZE 1
 
-int	main(int ac, char **av)
+void	ft_print_matches(t_list *first)
 {
-	if (ac > 2)
-		ft_putstr_fd("ERROR\n", 2);
-	else
+	t_list	*tmp;
+	int		pipe;
+
+	pipe = 0;
+	tmp = first;
+	while (tmp)
 	{
-		if (!ft_open(av[1]))
-			ft_putstr_fd("ERROR\n", 2);
+		pipe = tmp->content;
+		while (pipe > 0)
+		{
+			ft_putchar('|');
+			if (pipe != 1)
+				ft_putchar(' ');
+			--pipe;
+		}
+		ft_putchar('\n');
+		tmp = tmp->next;
 	}
-	return (0);
 }

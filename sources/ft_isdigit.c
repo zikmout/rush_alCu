@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ssicard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: abary <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/19 21:03:20 by ssicard           #+#    #+#             */
-/*   Updated: 2015/12/21 16:32:05 by abary            ###   ########.fr       */
+/*   Created: 2015/11/24 17:33:52 by abary             #+#    #+#             */
+/*   Updated: 2015/12/01 11:43:56 by abary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-#define BUFF_SIZE 1
-
-int	main(int ac, char **av)
+int		ft_isdigit(int c)
 {
-	if (ac > 2)
-		ft_putstr_fd("ERROR\n", 2);
+	if (c >= '0' && c <= '9')
+		return (1);
 	else
-	{
-		if (!ft_open(av[1]))
-			ft_putstr_fd("ERROR\n", 2);
-	}
-	return (0);
+		return (0);
 }

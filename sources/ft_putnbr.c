@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssicard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/19 21:03:20 by ssicard           #+#    #+#             */
-/*   Updated: 2015/12/21 16:32:05 by abary            ###   ########.fr       */
+/*   Created: 2015/11/24 15:17:20 by ssicard           #+#    #+#             */
+/*   Updated: 2015/12/20 10:11:37 by ssicard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#define BUFF_SIZE 1
 
-int	main(int ac, char **av)
+void	ft_putnbr(int nb)
 {
-	if (ac > 2)
-		ft_putstr_fd("ERROR\n", 2);
+	if (nb == -2147483648)
+		ft_putstr("-2147483648");
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
 	else
 	{
-		if (!ft_open(av[1]))
-			ft_putstr_fd("ERROR\n", 2);
+		ft_putchar(nb + '0');
 	}
-	return (0);
 }

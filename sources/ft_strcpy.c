@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy_mod.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssicard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/19 21:03:20 by ssicard           #+#    #+#             */
-/*   Updated: 2015/12/21 16:32:05 by abary            ###   ########.fr       */
+/*   Created: 2015/11/24 13:00:57 by ssicard           #+#    #+#             */
+/*   Updated: 2015/12/21 16:44:41 by abary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#define BUFF_SIZE 1
+#include <string.h>
 
-int	main(int ac, char **av)
+char	*ft_strcpy(char *dst, char *src)
 {
-	if (ac > 2)
-		ft_putstr_fd("ERROR\n", 2);
-	else
+	int	i;
+
+	if (dst == NULL || src == NULL)
+		return (NULL);
+	i = 0;
+	while (src[i] != '\0')
 	{
-		if (!ft_open(av[1]))
-			ft_putstr_fd("ERROR\n", 2);
+		dst[i] = src[i];
+		i++;
 	}
-	return (0);
+	dst[i] = 0;
+	return (dst);
 }

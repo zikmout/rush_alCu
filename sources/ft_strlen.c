@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssicard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/19 21:03:20 by ssicard           #+#    #+#             */
-/*   Updated: 2015/12/21 16:32:05 by abary            ###   ########.fr       */
+/*   Created: 2015/11/24 12:39:16 by ssicard           #+#    #+#             */
+/*   Updated: 2015/12/21 16:45:22 by abary            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#define BUFF_SIZE 1
+#include <string.h>
 
-int	main(int ac, char **av)
+size_t	ft_strlen(const char *s)
 {
-	if (ac > 2)
-		ft_putstr_fd("ERROR\n", 2);
-	else
+	size_t	i;
+
+	if (s == NULL)
+		return (0);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (!ft_open(av[1]))
-			ft_putstr_fd("ERROR\n", 2);
+		i++;
 	}
-	return (0);
+	return (i);
 }
